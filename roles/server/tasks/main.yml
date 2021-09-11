@@ -1,0 +1,18 @@
+
+# task para atualizacao do cache apt do servidor de instalacao
+# de alguns pacotes necessarios.
+
+---
+  - name: Atualiza o cache apt de nosso servidor
+    apt: update_cache=yes cache_valid_time=3600
+ 
+  - name: Instala os pacotes necessarios
+    apt: name={{ item }} state=present
+    with_items:
+    - apache2
+    - mysql-server
+    - php-mysql
+    - php
+    - libapache2-mod-php
+    - mcrypt
+    - python3-mysqldb

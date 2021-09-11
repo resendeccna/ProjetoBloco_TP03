@@ -1,0 +1,12 @@
+# playbook com o apontamento para os servidores na primeira linha,
+# usuario que podera rodar o playbook na segunda linha,
+# quais aplicacoes serao instaladas na linha roles.
+
+- hosts: servers
+  remote_user: ansible
+  become: yes
+  roles:
+  - server
+  - php
+  - mysql
+  - wordpress
